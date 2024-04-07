@@ -12,11 +12,11 @@ API_HASH = getenv("API_HASH")
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
 # Add Owner Username without @ 
-OWNER_USERNAME = getenv("OWNER_USERNAME","PRADHAN474")
+OWNER_USERNAME = getenv("OWNER_USERNAME","naksh_vai")
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "oxgenxBot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "naksh_xbot")
 # Don't Add style font 
-BOT_NAME = getenv("BOT_NAME" , "𝐎𝐗𝐘𝐆𝐄𝐍 𝐗 𝐁𝐎𝐓")
+BOT_NAME = getenv("BOT_NAME" , "OXY X BOT")
 #get Your Assistant User name
 ASSUSERNAME = getenv("ASSUSERNAME" , "Blossom_xmusic_bot_assitant")
 EVALOP = list(map(int, getenv("EVALOP", "5059737154").split()))
@@ -31,7 +31,7 @@ LOGGER_ID = int(getenv("LOGGER_ID", -1001437104456))
 # ------------------------------------------------
 GPT_API = getenv("GPT_API")
 # Get this value from  on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID", 5059737154))
+OWNER_ID = int(getenv("OWNER_ID", 7043794748))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
@@ -48,8 +48,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/OXEGN")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/BWANDARLOK")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/naksh_accounts")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/mysterious_chatzz")
 
 
 # Maximum Limit Allowed for users to save playlists on bot's server
