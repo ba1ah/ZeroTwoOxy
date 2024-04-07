@@ -6,7 +6,7 @@
 
 
 
-_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [™°‌ 🫧 🇴 🇽 𝐘 𓃭🇨𝐇𝐀𝐓 𝐁𝐎𝐓 ⃟⛦⃕͜༆](https://t.me/DESISWAGGERHU)**_
+_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [™°‌ 🫧 🇴 🇽 𝐘 𓃭🇨𝐇𝐀𝐓 𝐁𝐎𝐓 ⃟⛦⃕͜༆](https://t.me/uh_knew_naksh)**_
 ━━━━━━━━━━━━━━━━━━━━
 
 
@@ -14,7 +14,7 @@ _**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [™°‌ 🫧 🇴 
 ━━━━━━━━━━━━━━━━━━━━
 
 <p align="center">
-  <img src="https://graph.org/file/79b2347e9834e02510895.jpg">
+  <img src="https://telegra.ph/file/8b9b389d2389201ee4d6b.jpg">
 </p>
 
 <p align="center">
