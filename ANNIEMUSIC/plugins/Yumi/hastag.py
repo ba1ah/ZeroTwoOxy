@@ -18,7 +18,7 @@ async def hastag(bot, message):
         return await message.reply_text("Example:\n\n/hastag python")
         
     
-    await message.reply_text(f"ʜᴇʀᴇ ɪs ʏᴏᴜʀ  ʜᴀsᴛᴀɢ :\n<pre>{content}</pre>", quote=True)
+    await message.reply_text(f"💥 𝐇ᴇʀᴇ 𝐈s 𝐘ᴏᴜʀ 𝐇ᴀsʜᴛᴀɢ :\n<pre>{content}</pre>", quote=True)
     
 mod_name = "Hᴀsʜᴛᴀɢ"
 help= """
