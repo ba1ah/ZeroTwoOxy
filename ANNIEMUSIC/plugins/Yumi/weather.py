@@ -14,4 +14,4 @@ def weather(client, message):
         message.reply_photo(photo=weather_url, caption="Here's the weather for your location")
     except IndexError:
         # User didn't provide a location
-        message.reply_text("Please provide a location. Use /weather NEW YORK")
+        message.reply_text("𝐏ʟᴇᴀsᴇ 𝐏ʀᴏᴠɪᴅᴇ 𝐀 𝐋ᴏᴄᴀᴛɪᴏɴ. 𝐔sᴇ /weather CHENNAI")
