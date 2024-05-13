@@ -47,30 +47,36 @@ class Userbot(Client):
         )
 
     async def start(self):
-        LOGGER(__name__).info(f"🫧 Assistant starting...")
+        LOGGER(__name__).info(f"Gettings Assistants Info...")
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("CHATTING_2024")
-              
-                await self.one.join_chat("+H5IrqVsgKYU3ODI1")
+                await self.one.join_chat("TBNBotsNetwork")
+                await self.one.join_chat("TBNBotsNetwork")
             except:
                 pass
             assistants.append(1)
+            get_me = await self.one.get_me()
+            self.one.username = get_me.username
+            self.one.id = get_me.id
+            assistantids.append(get_me.id)
+            if get_me.last_name:
+                self.one.name = (
+                    get_me.first_name + " " + get_me.last_name
+                )
+            else:
+                self.one.name = get_me.first_name
+            LOGGER(__name__).info(
+                f"Assistant Started as {self.one.name}"
+            )
             try:
-                await self.one.send_message(config.LOGGER_ID, "🫧 Assistant Start.........")
-                                         
+                await self.one.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ᴏɴᴇ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.one.id}`\n❄ ɴᴀᴍᴇ : {self.one.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.one.username}"
+                )
             except:
                 LOGGER(__name__).error(
-                    "Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin!"
+                    f"Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
                 )
                 exit()
-            self.one.id = self.one.me.id
-            self.one.name = self.one.me.mention
-            self.one.username = self.one.me.username
-            assistantids.append(self.one.id)
-            LOGGER(__name__).info(f"Assistant Started as {self.one.name}")
-
         if config.STRING2:
             await self.two.start()
             try:
