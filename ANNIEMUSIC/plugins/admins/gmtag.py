@@ -120,10 +120,10 @@ async def mentionall(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("๏ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴛᴀɢ ᴍᴇᴍʙᴇʀs. ")
+        return await message.reply("๏ 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs. ")
 
     if message.reply_to_message and message.text:
-        return await message.reply("/tagall ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ᴛʏᴘᴇ ʟɪᴋᴇ ᴛʜɪs / ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ ɴᴇxᴛ ᴛɪᴍᴇ ʙᴏᴛ ᴛᴀɢɢɪɴɢ...")
+        return await message.reply("/tagall 𝐆ᴏᴏᴅ 𝐌ᴏʀɴɪɴɢ 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ 𝐁ᴏᴛ 𝐓ᴀɢɢɪɴɢ...")
     elif message.text:
         mode = "text_on_cmd"
         msg = message.text
@@ -131,11 +131,11 @@ async def mentionall(client, message):
         mode = "text_on_reply"
         msg = message.reply_to_message
         if not msg:
-            return await message.reply("/tagall ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ᴛʏᴘᴇ ʟɪᴋᴇ ᴛʜɪs / ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ ɴᴇxᴛ ᴛɪᴍᴇ ғᴏᴛ ᴛᴀɢɢɪɴɢ...")
+            return await message.reply("/tagall 𝐆ᴏᴏᴅ 𝐌ᴏʀɴɪɴɢ 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ 𝐁ᴏᴛ 𝐓ᴀɢɢɪɴɢ...")
     else:
-        return await message.reply("/tagall ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ᴛʏᴘᴇ ʟɪᴋᴇ ᴛʜɪs / ʀᴇᴘʟʏ ᴀɴʏ ᴍᴇssᴀɢᴇ ɴᴇxᴛ ᴛɪᴍᴇ ʙᴏᴛ ᴛᴀɢɢɪɴɢ...")
+        return await message.reply("/tagall 𝐆ᴏᴏᴅ 𝐌ᴏʀɴɪɴɢ 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ 𝐁ᴏᴛ 𝐓ᴀɢɢɪɴɢ...")
     if chat_id in spam_chats:
-        return await message.reply("๏ ᴘʟᴇᴀsᴇ ᴀᴛ ғɪʀsᴛ sᴛᴏᴘ ʀᴜɴɴɪɴɢ ᴍᴇɴᴛɪᴏɴ ᴘʀᴏᴄᴇss...")
+        return await message.reply("𝐏ʟᴇᴀsᴇ 𝐀ᴛ 𝐅ɪʀsᴛ 𝐒ᴛᴏᴘ 𝐑ᴜɴɴɪɴɢ 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss...")
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ""
@@ -180,9 +180,9 @@ async def mention_allvc(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("๏ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴛᴀɢ ᴍᴇᴍʙᴇʀs. ")
+        return await message.reply(" 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs. ")
     if chat_id in spam_chats:
-        return await message.reply("๏ ᴘʟᴇᴀsᴇ ᴀᴛ ғɪʀsᴛ sᴛᴏᴘ ʀᴜɴɴɪɴɢ ᴍᴇɴᴛɪᴏɴ ᴘʀᴏᴄᴇss...")
+        return await message.reply("𝐏ʟᴇᴀsᴇ 𝐀ᴛ 𝐅ɪʀsᴛ 𝐒ᴛᴏᴘ 𝐑ᴜɴɴɪɴɢ 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss...")
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ""
@@ -210,7 +210,7 @@ async def mention_allvc(client, message):
 @app.on_message(filters.command(["gmstop", "gnstop"]))
 async def cancel_spam(client, message):
     if not message.chat.id in spam_chats:
-        return await message.reply("๏ ᴄᴜʀʀᴇɴᴛʟʏ ɪ'ᴍ ɴᴏᴛ ᴛᴀɢɢɪɴɢ ʙᴀʙʏ.")
+        return await message.reply("𝐂ᴜʀʀᴇɴᴛʟʏ 𝐈'ᴍ 𝐍ᴏᴛ 𝐓ᴀɢɢɪɴɢ 𝐁ᴀʙʏ 😊")
     is_admin = False
     try:
         participant = await client.get_chat_member(message.chat.id, message.from_user.id)
@@ -223,10 +223,10 @@ async def cancel_spam(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("๏ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴏɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴛᴀɢ ᴍᴇᴍʙᴇʀs.")
+        return await message.reply("๏ 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs.")
     else:
         try:
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.reply("๏ 🦋ᴍᴇɴᴛɪᴏɴ ʀᴏᴋɴᴇ ᴡᴀʟᴇ ᴋɪ ᴍᴀᴀ ᴋᴀ ʙʜᴀʀᴏsᴀ ᴊᴇᴇᴛᴜ.....🫠 ๏")
+        return await message.reply(" 🦋 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss 𝐒ᴛᴏᴘᴘᴇᴅ ๏")
