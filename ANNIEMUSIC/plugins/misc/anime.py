@@ -29,7 +29,7 @@ def get_anime_info(anime_name):
     
     if 'errors' in data:
         error_message = data['errors'][0]['message']
-        return None, f"Error retrieving anime info: {error_message}"
+        return None, f"𝐄ʀʀᴏʀ 𝐑ᴇᴛʀɪᴇᴠɪɴɢ 𝐀ɴɪᴍᴇ 𝐈ɴғᴏ: {error_message}"
     
     anime_data = data['data']['Media']
     return anime_data, None
@@ -54,13 +54,13 @@ def anime_info(client, message):
         
         response = f"Title (Romaji): {title}\n"
         if english_title:
-            response += f"Title (English): {english_title}\n"
-        response += f"Title (Native): {native_title}\n"
-        response += f"Description: {description}\n"
-        response += f"Episodes: {episodes}\n"
-        response += f"Status: {status}\n"
-        response += f"Average Score: {average_score}"
+            response += f"𝐓ɪᴛʟᴇ (English): {english_title}\n"
+        response += f"𝐓ɪᴛʟᴇ (Native): {native_title}\n"
+        response += f"𝐃ᴇsᴄʀɪᴘᴛɪᴏɴ: {description}\n"
+        response += f"𝐄ᴘɪsᴏᴅᴇs: {episodes}\n"
+        response += f"𝐒ᴛᴀᴛᴜs: {status}\n"
+        response += f"𝐀ᴠᴇʀᴀɢᴇ 𝐒ᴄᴏʀᴇ: {average_score}"
         # Send photo along with text
         message.reply_photo(cover_image_url, caption=response)
     else:
-        message.reply_text(error_message or "Anime not found or error retrieving information.")
+        message.reply_text(error_message or "𝐄ʀʀᴏʀ 𝐑ᴇᴛʀɪᴇᴠɪɴɢ 𝐀ɴɪᴍᴇ 𝐈ɴғᴏ.")
