@@ -18,7 +18,7 @@ async def _filter(client, message):
         message.reply_to_message
         and not len(message.command) == 2
     ):
-        await message.reply("You need to give the filter a name!")  
+        await message.reply("𝐘ᴏᴜ 𝐍ᴇᴇᴅ 𝐓ᴏ 𝐆ɪᴠᴇ 𝐀 𝐍ᴀᴍᴇ 𝐅ᴏʀ 𝐅ɪʟᴛᴇʀ 🫣")  
         return 
     
     filter_name, filter_reason = get_text_reason(message)
@@ -26,7 +26,7 @@ async def _filter(client, message):
         message.reply_to_message
         and not len(message.command) >=2
     ):
-        await message.reply("You need to give the filter some content!")
+        await message.reply("𝐘ᴏᴜ 𝐍ᴇᴇᴅ 𝐓ᴏ 𝐆ɪᴠᴇ 𝐒ᴏᴍᴇ 𝐂ᴏɴᴛᴇɴᴛ 𝐅ᴏʀ 𝐅ɪʟᴛᴇʀ 🫣")
         return
 
     content, text, data_type = await GetFIlterMessage(message)
@@ -79,11 +79,11 @@ async def _filters(client, message):
     
     if len(FILTERS) == 0:
         await message.reply(
-            f'No filters in {chat_title}.'
+            f'𝐍ᴏ 𝐅ɪʟᴛᴇʀs 𝐈ɴ 😭 {chat_title}.'
         )
         return
 
-    filters_list = f'List of filters in {chat_title}:\n'
+    filters_list = f'𝐋ɪsᴛ 𝐎ғ 𝐅ɪʟᴛᴇʀs 𝐈ɴ 🧐 {chat_title}:\n'
     
     for filter_ in FILTERS:
         filters_list += f'- `{filter_}`\n'
@@ -99,7 +99,7 @@ async def stopall(client, message):
     chat_title = message.chat.title 
     user = await client.get_chat_member(chat_id,message.from_user.id)
     if not user.status == ChatMemberStatus.OWNER :
-        return await message.reply_text("Only Owner Can Use This!!") 
+        return await message.reply_text("𝐎ɴʟʏ 𝐎ᴡɴᴇʀ 𝐂ᴀɴ 𝐔sᴇ 𝐓ʜɪs 😛") 
 
     KEYBOARD = InlineKeyboardMarkup(
         [[InlineKeyboardButton(text='Delete all filters', callback_data='custfilters_stopall')],
@@ -107,7 +107,7 @@ async def stopall(client, message):
     )
 
     await message.reply(
-        text=(f'Are you sure you want to stop **ALL** filters in {chat_title}? This action is irreversible.'),
+        text=(f'𝐀ʀᴇ 𝐘ᴏᴜ 𝐒ᴜʀᴇ 𝐖ᴀɴᴛ 𝐓ᴏ 𝐒ᴛᴏᴘ **ALL**  𝐅ɪʟᴛᴇʀs 𝐈ɴ {chat_title}? 𝐓ʜɪs 𝐀ᴄᴛɪᴏɴ 𝐈s 𝐈ʀʀᴇᴠᴇʀsɪʙʟᴇ.'),
         reply_markup=KEYBOARD
     )
 
@@ -120,11 +120,11 @@ async def stopall_callback(client, callback_query: CallbackQuery):
     user = await client.get_chat_member(chat_id, callback_query.from_user.id)
 
     if not user.status == ChatMemberStatus.OWNER :
-        return await callback_query.answer("Only Owner Can Use This!!") 
+        return await callback_query.answer("𝐎ɴʟʏ 𝐎ᴡɴᴇʀ 𝐂ᴀɴ 𝐔sᴇ 𝐓ʜɪs 😛") 
     
     if query_data == 'stopall':
         await stop_all_db(chat_id)
-        await callback_query.edit_message_text(text="I've deleted all chat filters.")
+        await callback_query.edit_message_text(text="𝐈'ᴠᴇ 𝐃ᴇʟᴇᴛᴇᴅ 𝐀ʟʟ 𝐂ʜᴀᴛ 𝐅ɪʟᴛᴇʀs 🤓.")
     
     elif query_data == 'cancel':
         await callback_query.edit_message_text(text='Cancelled.')
@@ -141,7 +141,7 @@ async def stop(client, message):
     
     filter_name = message.command[1]
     if (filter_name not in await get_filters_list(chat_id)):
-        await message.reply("You haven't saved any filters on this word yet!")
+        await message.reply("𝐘ᴏᴜ 𝐇ᴀᴠᴇɴ'ᴛ 𝐒ᴀᴠᴇᴅ 𝐀ɴʏ 𝐅ɪʟᴛᴇʀs 𝐎ɴ 𝐓ʜɪs 𝐖ᴏʀᴅ 𝐘ᴇᴛ")
         return
     
     await stop_db(chat_id, filter_name)
