@@ -30,9 +30,9 @@ def country_command_handler(client: Client, message: Message):
                 f"Population: {population}"
             )
         else:
-            response_text = "Error fetching country information from the API."
+            response_text = "𝐄ʀʀᴏʀ 𝐅ᴇᴛᴄʜɪɴɢ 𝐂ᴏᴜɴᴛʀʏ 𝐈ɴғᴏʀᴍᴀᴛɪᴏɴ 𝐅ʀᴏᴍ 𝐓ʜᴇ 𝐀𝐏𝐈."
     except requests.exceptions.HTTPError as http_err:
-        response_text = f"HTTP error occurred Enter correct Country code"
+        response_text = f"𝐇𝐓𝐓𝐏 𝐄ʀʀᴏʀ 𝐎ᴄᴄᴜʀʀᴇᴅ 𝐄ɴᴛᴇʀ 𝐂ᴏʀʀᴇᴄᴛ 𝐂ᴏᴜɴᴛʀʏ 𝐂ᴏᴅᴇ"
     except Exception as err:
         response_text = f" Error @githubxd"
 
