@@ -37,4 +37,4 @@ def qr_handler(client, message: Message):
         qr_image = generate_qr_code(input_text)
         message.reply_photo(qr_image, caption="Here's your QR Code")
     else:
-        message.reply_text("Please provide the text for the QR code after the command. Example usage: /qr text")
+        message.reply_text("𝐏ʟᴇᴀsᴇ 𝐏ʀᴏᴠɪᴅᴇ 𝐓ᴇxᴛ 𝐅ᴏʀ 𝐓ʜᴇ 𝐐𝐑 𝐂ᴏᴅᴇ 𝐀ғᴛᴇʀ 𝐓ʜᴇ 𝐂ᴏᴍᴍᴀɴᴅ. 𝐄xᴀᴍᴘʟᴇ: /qr 𝐓ᴇxᴛ")
