@@ -61,7 +61,7 @@ font_path = "ANNIEMUSIC/assets/hiroko.ttf"
 chat_id_env = environ.get("CHAT_ID")
 CHAT_ID = [int(app) for app in chat_id_env.split(",")] if chat_id_env else []
 
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "**❅─────✧❅✦❅✧─────❅**\n**🥀ʜᴇʏ {mention}**\n\n**🏓ᴡᴇʟᴄᴏᴍᴇ ɪɴ ɴᴇᴡ ɢʀᴏᴜᴘ✨**\n\n**➻** {title}\n\n**💞ɴᴏᴡ ᴍᴀᴋᴇ ɴᴇᴡ ғʀɪᴇɴᴅs ᴀɴᴅ sᴛᴀʏ ᴀʟᴡᴀʏs ᴏɴʟɪɴᴇ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ🥳**\n**❅─────✧❅✦❅✧─────❅**")
+TEXT = environ.get("APPROVED_WELCOME_TEXT", "**❅─────✧❅✦❅✧─────❅**\n**𝐇ᴇʏ 🫰 {mention}**\n\n**𝐖ᴇʟᴄᴏᴍᴇ 𝐓ᴏ 𝐎ᴜʀ 𝐆ʀᴏᴜᴘ 🙈**\n\n**➻** {title}\n\n**𝐋ᴏᴠᴇ 𝐘ᴏᴜ 𝐀ɴᴅ 𝐇ᴀᴠᴇ 𝐅ᴜɴ ⚡️**\n**❅─────✧❅✦❅✧─────❅**")
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # List of random photo links
@@ -91,7 +91,7 @@ async def autoapprove(client: app, message: ChatJoinRequest):
         profile_path=photo,
     )
 
-    print(f"{user.first_name} Joined 🤝")  # Logs
+    print(f"{user.first_name} 𝐉ᴏɪɴᴇᴅ 🤝")  # Logs
 
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
 
@@ -104,7 +104,7 @@ async def autoapprove(client: app, message: ChatJoinRequest):
                 [
                     [
                         InlineKeyboardButton(
-                            " ๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ๏ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                            "🤌🏻 𝐀ᴅᴅ 𝐌ᴇ ❤️‍🔥", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                     ]
                 ]
             ),
