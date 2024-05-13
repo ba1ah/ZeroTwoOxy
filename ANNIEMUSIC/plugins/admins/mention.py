@@ -16,7 +16,7 @@ spam_chats = []
 async def tag_all_users(_,message): 
     replied = message.reply_to_message  
     if len(message.command) < 2 and not replied:
-        await message.reply_text("**ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴛᴀɢ ᴀʟʟ**") 
+        await message.reply_text("**𝐑ᴇᴘʟʏ 𝐓ᴏ 𝐀 𝐌ᴇssᴀɢᴇ 𝐎ʀ 𝐆ɪᴠᴇ 𝐒ᴏᴍᴇ 𝐓ᴇxᴛ 𝐓ᴏ 𝐓ᴀɢ 𝐀ʟʟ**") 
         return                  
     if replied:
         spam_chats.append(message.chat.id)      
@@ -60,7 +60,7 @@ async def tag_all_users(_,message):
 @app.on_message(filters.command(["cancel", "ustop"]))
 async def cancel_spam(client, message):
     if not message.chat.id in spam_chats:
-        return await message.reply("𝐂𝐮𝐫𝐫𝐞𝐧𝐭𝐥𝐲 𝐈'𝐦 𝐍𝐨𝐭 ..")
+        return await message.reply("𝐂ᴜʀʀᴇɴᴛʟʏ 𝐈'ᴍ 𝐍ᴏᴛ 𝐓ᴀɢɢɪɴɢ 𝐁ᴀʙʏ 😊")
     is_admin = False
     try:
         participant = await client.get_chat_member(message.chat.id, message.from_user.id)
@@ -73,10 +73,10 @@ async def cancel_spam(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("𝐘𝐨𝐮 𝐀𝐫𝐞 𝐍𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐁𝐚𝐛𝐲")
+        return await message.reply("๏ 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs.")
     else:
         try:
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.reply("**🦋ᴛᴀɢ ʀᴏᴋɴᴇ ᴡᴀʟᴇ ᴋɪ ᴍᴀᴀ ᴋᴀ ʙʜᴀʀᴏsᴀ ᴊᴇᴇᴛᴜ.....🫠**")
+        return await message.reply("**🦋 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss 𝐒ᴛᴏᴘᴘᴇᴅ**")
