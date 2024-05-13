@@ -34,4 +34,4 @@ async def give_link_command(client, message):
     # Generate an invite link for the chat where the command is used
     chat = message.chat.id
     link = await app.export_chat_invite_link(chat)
-    await message.reply_text(f"Here's the invite link for this chat:\n{link}")
+    await message.reply_text(f"𝐇ᴇʀᴇ's 𝐓ʜᴇ 𝐈ɴᴠɪᴛᴇ 𝐋ɪɴᴋ 𝐅ᴏʀ 𝐓ʜɪs 𝐂ʜᴀᴛ 😉:\n{link}")
