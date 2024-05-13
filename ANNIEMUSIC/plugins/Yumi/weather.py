@@ -11,7 +11,7 @@ def weather(client, message):
         weather_url = f"https://wttr.in/{location}.png"
         
         # Reply with the weather information as a photo
-        message.reply_photo(photo=weather_url, caption="Here's the weather for your location")
+        message.reply_photo(photo=weather_url, caption="𝐇ᴇʀᴇ's 𝐓ʜᴇ 𝐖ᴇᴀᴛʜᴇʀ 𝐅ᴏʀ 𝐘ᴏᴜʀ 𝐋ᴏᴄᴀᴛɪᴏɴ")
     except IndexError:
         # User didn't provide a location
         message.reply_text("𝐏ʟᴇᴀsᴇ 𝐏ʀᴏᴠɪᴅᴇ 𝐀 𝐋ᴏᴄᴀᴛɪᴏɴ. 𝐔sᴇ /weather CHENNAI")
