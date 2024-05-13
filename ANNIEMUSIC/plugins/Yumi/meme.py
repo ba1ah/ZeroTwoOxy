@@ -28,4 +28,4 @@ def meme_command(client, message):
 
     except Exception as e:
         print(f"Error fetching meme: {e}")
-        message.reply_text("Sorry, I couldn't fetch a meme at the moment.")
+        message.reply_text("𝐒ᴏʀʀʏ, 𝐈 𝐂ᴏᴜʟᴅɴ'ᴛ 𝐅ᴇᴛᴄʜ 𝐀 𝐌ᴇᴍᴇ 𝐀ᴛ 𝐓ʜᴇ 𝐌ᴏᴍᴇɴᴛ.")
