@@ -42,10 +42,10 @@ async def short_urls(bot, message):
          ikb("Clckru Url",url=clckru_link)
         ]
         ]
-        await message.reply_text(f"Here are few shortened links :",reply_markup=ikm(url))
+        await message.reply_text(f"𝐇ᴇʀᴇ 𝐀ʀᴇ 𝐅ᴇᴡ 𝐒ʜᴏʀᴛᴇɴᴇᴅ 𝐋ɪɴᴋs :",reply_markup=ikm(url))
 
     except Exception as e:
-        await message.reply_text(f"Either the link is already shortened or is invalid.")
+        await message.reply_text(f"𝐄ɪᴛʜᴇʀ 𝐓ʜᴇ 𝐋ɪɴᴋ 𝐈s 𝐀ʟʀᴇᴀᴅʏ 𝐒ʜᴏʀᴛᴇɴᴇᴅ 𝐎ʀ 𝐈s 𝐈ɴᴠᴀʟɪᴅ.")
 
 @app.on_message(filters.command(["unshort"]))
 async def unshort(bot, message):
@@ -71,7 +71,7 @@ async def unshort(bot, message):
 
         
 
-        await message.reply_text(f"Here's the unshortened link :\n`{x}` " ,reply_markup=ikm(url))
+        await message.reply_text(f"𝐒ʜᴏʀᴛᴇɴᴇᴅ 𝐋ɪɴᴋ :\n`{x}` " ,reply_markup=ikm(url))
 
         
 
