@@ -47,7 +47,7 @@ class JARVIS(Client):
                 "Please promote your bot as an admin in your log group/channel."
             )
             exit()
-        LOGGER(__name__).info(f"˹𝕆𝕩𝕪𝕘𝕖𝕟 ꭙ 𝔹𝕆𝕋˼ 🫧 Bot Started as {self.name}")
+        LOGGER(__name__).info(f"🫧 Bot Started as {self.name}")
 
     async def stop(self):
         await super().stop()
