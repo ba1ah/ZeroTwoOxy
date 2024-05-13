@@ -8,9 +8,9 @@ from ..logging import LOGGER
 
 class JARVIS(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"˹𝕆𝕩𝕪𝕘𝕖𝕟 ꭙ 𝔹𝕆𝕋˼ 🫧...")
+        LOGGER(__name__).info(f" 🫧...")
         super().__init__(
-            name="˹𝕆𝕩𝕪𝕘𝕖𝕟 ꭙ 𝔹𝕆𝕋˼ 🫧",
+            name="Idhaya 🫧",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
