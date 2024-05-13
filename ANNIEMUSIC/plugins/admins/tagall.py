@@ -139,7 +139,7 @@ TAGMES = [ " 𝐎𝐲𝐲 𝐭𝐞𝐫𝐞 𝐛𝐚𝐥𝐞 𝐤𝐨 𝐣𝐚�
 async def mentionall(client, message):
     chat_id = message.chat.id
     if message.chat.type == ChatType.PRIVATE:
-        return await message.reply("𝐓𝐡𝐢𝐬 𝐂𝐨𝐦𝐦𝐚𝐧𝐝 𝐎𝐧𝐥𝐲 𝐅𝐨𝐫 𝐆𝐫𝐨𝐮𝐩𝐬.")
+        return await message.reply("𝐓ʜɪs 𝐂ᴏᴍᴍᴀɴᴅ 𝐎ɴʟʏ 𝐅ᴏʀ 𝐆ʀᴏᴜᴘs 😢")
 
     is_admin = False
     try:
@@ -153,10 +153,10 @@ async def mentionall(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("𝐘𝐨𝐮 𝐀𝐫𝐞 𝐍𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐁𝐚𝐛𝐲, 𝐎𝐧𝐥𝐲 𝐀𝐝𝐦𝐢𝐧𝐬 𝐂𝐚𝐧 . ")
+        return await message.reply("๏ 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs. ")
 
     if message.reply_to_message and message.text:
-        return await message.reply("/tagall  𝐓𝐲𝐩𝐞 𝐋𝐢𝐤𝐞 𝐓𝐡𝐢𝐬 / 𝐑𝐞𝐩𝐥𝐲 𝐀𝐧𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞 𝐍𝐞𝐱𝐭 𝐓𝐢𝐦𝐞 ")
+        return await message.reply("/tagall 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ")
     elif message.text:
         mode = "text_on_cmd"
         msg = message.text
@@ -164,11 +164,11 @@ async def mentionall(client, message):
         mode = "text_on_reply"
         msg = message.reply_to_message
         if not msg:
-            return await message.reply("/tagall  𝐓𝐲𝐩𝐞 𝐋𝐢𝐤𝐞 𝐓𝐡𝐢𝐬 / 𝐑𝐞𝐩𝐥𝐲 𝐀𝐧𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞 𝐍𝐞𝐱𝐭 𝐓𝐢𝐦𝐞 ...")
+            return await message.reply("/tagall 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ...")
     else:
-        return await message.reply("/tagall  𝐓𝐲𝐩𝐞 𝐋𝐢𝐤𝐞 𝐓𝐡𝐢𝐬 / 𝐑𝐞𝐩𝐥𝐲 𝐀𝐧𝐲 𝐌𝐞𝐬𝐬𝐚𝐠𝐞 𝐍𝐞𝐱𝐭 𝐓𝐢𝐦𝐞 ..")
+        return await message.reply("/tagall 𝐓ʏᴘᴇ 𝐋ɪᴋᴇ 𝐓ʜɪs / 𝐑ᴇᴘʟʏ 𝐀ɴʏ 𝐌ᴇssᴀɢᴇ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ..")
     if chat_id in spam_chats:
-        return await message.reply("𝐏𝐥𝐞𝐚𝐬𝐞 𝐀𝐭 𝐅𝐢𝐫𝐬𝐭 𝐒𝐭𝐨𝐩 𝐑𝐮𝐧𝐧𝐢𝐧𝐠 𝐏𝐫𝐨𝐜𝐞𝐬𝐬 ...")
+        return await message.reply("𝐏ʟᴇᴀsᴇ 𝐀ᴛ 𝐅ɪʀsᴛ 𝐒ᴛᴏᴘ 𝐑ᴜɴɴɪɴɢ 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss...")
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ""
@@ -210,10 +210,10 @@ async def cancel_spam(client, message):
         ):
             is_admin = True
     if not is_admin:
-        return await message.reply("𝐘𝐨𝐮 𝐀𝐫𝐞 𝐍𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐁𝐚𝐛𝐲, 𝐎𝐧𝐥𝐲 𝐀𝐝𝐦𝐢𝐧𝐬 𝐂𝐚𝐧 𝐓𝐚𝐠 𝐌𝐞𝐦𝐛𝐞𝐫𝐬.")
+        return await message.reply("๏ 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏᴛ 𝐀ᴅᴍɪɴ 𝐁ᴀʙʏ, 𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐓ᴀɢ 𝐌ᴇᴍʙᴇʀs.")
     else:
         try:
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.reply("**🦋ᴛᴀɢ ʀᴏᴋɴᴇ ᴡᴀʟᴇ ᴋɪ ᴍᴀᴀ ᴋᴀ ʙʜᴀʀᴏsᴀ ᴊᴇᴇᴛᴜ.....🫠**")
+        return await message.reply("**🦋๏ 𝐌ᴇɴᴛɪᴏɴ 𝐏ʀᴏᴄᴇss 𝐒ᴛᴏᴘᴘᴇᴅ ๏**")
