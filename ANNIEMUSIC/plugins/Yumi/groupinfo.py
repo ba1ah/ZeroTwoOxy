@@ -42,9 +42,9 @@ async def get_group_status(_, message: Message):
 @app.on_message(filters.command("status") & filters.group)
 def group_status(client, message):
     chat = message.chat  # Chat where the command was sent
-    status_text = f"Group ID: {chat.id}\n" \
-                  f"Title: {chat.title}\n" \
-                  f"Type: {chat.type}\n"
+    status_text = f"☘️ 𝐆ʀᴏᴜᴘ ID : {chat.id}\n" \
+                  f"🍂 𝐓ɪᴛʟᴇ : {chat.title}\n" \
+                  f"⚡️ 𝐔sᴇʀɴᴀᴍᴇ : {chat.type}\n"
                   
     if chat.username:  # Not all groups have a username
         status_text += f"Username: @{chat.username}"
