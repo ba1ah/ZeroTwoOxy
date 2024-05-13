@@ -9,16 +9,16 @@ SUPPORT_CHAT = "BWANDARLOK"
 @app.on_message(filters.command("wish"))
 async def wish(_, m):
     if len(m.command) < 2:
-        await m.reply("ᴀᴅᴅ ᴡɪꜱʜ ʙᴀʙʏ🥀!")
+        await m.reply("𝐀ᴅᴅ 𝐘ᴏᴜʀ 𝐖ɪsʜ ✨!")
         return 
 
     api = requests.get("https://nekos.best/api/v2/happy").json()
     url = api["results"][0]['url']
     text = m.text.split(None, 1)[1]
     wish_count = random.randint(1, 100)
-    wish = f"✨ ʜᴇʏ! {m.from_user.first_name}! "
-    wish += f"✨ ʏᴏᴜʀ ᴡɪꜱʜ: {text} "
-    wish += f"✨ ᴘᴏꜱꜱɪʙʟᴇ ᴛᴏ: {wish_count}%"
+    wish = f"✨ 𝐇ᴇʏ! {m.from_user.first_name}! "
+    wish += f"✨𝐘ᴏᴜʀ 𝐖ɪsʜ: {text} "
+    wish += f"✨ 𝐏ᴏssɪʙʟᴇ 𝐓ᴏ: {wish_count}%"
     
     await app.send_animation(
         chat_id=m.chat.id,
