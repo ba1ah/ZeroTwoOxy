@@ -15,26 +15,26 @@ async def save_note(client, message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if message.reply_to_message and len(message.command) < 2:
-        return await message.reply_text("Please provide a name for the note!")
+        return await message.reply_text("𝐘ᴏᴜ 𝐍ᴇᴇᴅ 𝐓ᴏ 𝐆ɪᴠᴇ 𝐀 𝐍ᴀᴍᴇ 𝐅ᴏʀ 𝐍ᴏᴛᴇ 🫣")
 
     if not message.reply_to_message and len(message.command) < 3:
-        return await message.reply_text("Please provide some content for the note!")
+        return await message.reply_text("𝐘ᴏᴜ 𝐍ᴇᴇᴅ 𝐓ᴏ 𝐆ɪᴠᴇ 𝐒ᴏᴍᴇ 𝐂ᴏɴᴛᴇɴᴛ 𝐅ᴏʀ 𝐍ᴏᴛᴇ 🫣")
 
     note_name = message.command[1]
     content, text, data_type = GetNoteMessage(message)
     
     try:
         await SaveNote(chat_id, note_name, content, text, data_type)
-        await message.reply_text(f"Note '{note_name}' has been saved in {chat_title}.")
+        await message.reply_text(f"𝐍ᴏᴛᴇ '{note_name}' 𝐇ᴀs 𝐁ᴇᴇɴ 𝐒ᴀᴠᴇᴅ 𝐈ɴ {chat_title}.")
     except Exception as e:
-        await message.reply_text(f"An error occurred while saving the note: {str(e)}")
+        await message.reply_text(f"𝐀ɴ 𝐄ʀʀᴏʀ 𝐎ᴄᴄᴜʀᴇᴅ 𝐖ʜɪʟᴇ 𝐒ᴀᴠɪɴɢ 𝐓ʜᴇ 𝐍ᴏᴛᴇ 😢: {str(e)}")
 
 # Command to retrieve a note
 @app.on_message(filters.command("get") & admin_filter)
 async def get_note(client, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
-        return await message.reply_text("Please specify the name of the note!")
+        return await message.reply_text("𝐏ʟᴇᴀsᴇ 𝐒ᴘᴇᴄɪғʏ 𝐓ʜᴇ 𝐍ᴀᴍᴇ 𝐎ғ 𝐓ʜᴇ 𝐍ᴏᴛᴇ!")
 
     note_name = message.command[1]
     if not await isNoteExist(chat_id, note_name):
@@ -57,14 +57,14 @@ async def regex_get_note(client, message):
 async def private_notes(client, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
-        return await message.reply_text("Please specify 'on' or 'off'!")
+        return await message.reply_text("𝐏ʟᴇᴀsᴇ 𝐒ᴘᴇᴄɪғʏ 'on' 𝐎ʀ 'off'!")
 
     setting = message.command[1].lower()
     if setting in ['on', 'off']:
         await set_private_note(chat_id, setting == 'on')
-        await message.reply_text(f"Private notes setting updated to '{setting}'.")
+        await message.reply_text(f"𝐏ʀɪᴠᴀᴛᴇ 𝐍ᴏᴛᴇs 𝐒ᴇᴛᴛɪɴɢs 𝐔ᴘᴅᴀᴛᴇᴅ 𝐓ᴏ '{setting}'.")
     else:
-        await message.reply_text("Invalid setting. Please specify 'on' or 'off'!")
+        await message.reply_text("𝐈ɴᴠᴀʟɪᴅ 𝐒ᴇᴛᴛɪɴɢ. 𝐏ʟᴇᴀsᴇ 𝐒ᴘᴇᴄɪғʏ 'on' 𝐎ʀ 'off'!")
 
 # Command to clear a specific note
 @app.on_message(filters.command("clear") & admin_filter)
@@ -72,12 +72,12 @@ async def private_notes(client, message):
 async def clear_note(client, message):
     chat_id = message.chat.id
     if len(message.command) < 2:
-        return await message.reply_text("Please specify the name of the note!")
+        return await message.reply_text("𝐏ʟᴇᴀsᴇ 𝐒ᴘᴇᴄɪғʏ 𝐓ʜᴇ 𝐍ᴀᴍᴇ 𝐎ғ 𝐓ʜᴇ 𝐍ᴏᴛᴇ!")
 
     note_name = message.command[1].lower()
     if await isNoteExist(chat_id, note_name):
         await ClearNote(chat_id, note_name)
-        await message.reply_text(f"Note '{note_name}' has been deleted.")
+        await message.reply_text(f"𝐍ᴏᴛᴇ '{note_name}' 𝐇ᴀs 𝐁ᴇᴇɴ 𝐃ᴇʟᴇᴛᴇᴅ.")
     else:
         await message.reply_text("Note not found.")
 
@@ -89,7 +89,7 @@ async def clear_all_notes(client, message):
     chat_title = message.chat.title
     user = await client.get_chat_member(chat_id, owner_id)
     if user.status != ChatMemberStatus.OWNER:
-        return await message.reply_text("Only the owner can use this command!")
+        return await message.reply_text("𝐎ɴʟʏ 𝐎ᴡɴᴇʀ 𝐂ᴀɴ 𝐔sᴇ 𝐓ʜɪs 😛")
 
     note_list = await NoteList(chat_id)
     if not note_list:
@@ -100,7 +100,7 @@ async def clear_all_notes(client, message):
         [InlineKeyboardButton(text='Cancel', callback_data=f'clearallnotes_cancel_{owner_id}')]
     ])
     await message.reply_text(
-        f"Are you sure you want to delete **ALL** notes in {chat_title}? This action is irreversible.",
+        f"𝐀ʀᴇ 𝐘ᴏᴜ 𝐒ᴜʀᴇ 𝐖ᴀɴᴛ 𝐓ᴏ 𝐃ᴇʟᴇᴛᴇ **ALL** 𝐍ᴏᴛᴇs 𝐈ɴ {chat_title}? 𝐓ʜɪs 𝐀ᴄᴛɪᴏɴ 𝐈s 𝐈ʀʀᴇᴠᴇʀsɪʙʟᴇ.",
         reply_markup=keyboard
     )
 
@@ -115,11 +115,11 @@ async def clear_all_callback(client, callback_query: CallbackQuery):
         if query_data == 'clear':
             chat_id = int(callback_query.data.split('_')[3])
             await ClearAllNotes(chat_id)
-            await callback_query.answer("All notes have been deleted.")
+            await callback_query.answer("𝐀ʟʟ 𝐍ᴏᴛᴇs 𝐇ᴀs 𝐁ᴇᴇɴ 𝐃ᴇʟᴇᴛᴇᴅ.")
         elif query_data == 'cancel':
             await callback_query.answer("Cancelled.")
     else:
-        await callback_query.answer("Only admins can execute this command!")
+        await callback_query.answer("𝐎ɴʟʏ 𝐀ᴅᴍɪɴs 𝐂ᴀɴ 𝐄xᴇᴄᴜᴛᴇ 𝐓ʜɪs 𝐂ᴏᴍᴍᴀɴᴅ!")
 
 # Command to list all saved notes
 @app.on_message(filters.command(['notes', 'saved']) & filters.group)
@@ -131,11 +131,11 @@ async def list_notes(client, message):
         note_header = f"List of notes in {chat_title}:\n"
         note_list_str = '\n'.join([f" • `#{note}`" for note in notes_list])
         await message.reply_text(
-            f"{note_header}{note_list_str}\nYou can retrieve these notes using `/get notename` or `#notename`.",
+            f"{note_header}{note_list_str}\n𝐘ᴏᴜ 𝐂ᴀɴ 𝐑ᴇᴛʀɪᴇᴠᴇ 𝐓ʜᴇsᴇ 𝐍ᴏᴛᴇs 𝐔sɪɴɢ `/get notename` 𝐎ʀ `#notename`.",
             quote=True
         )
     else:
-        await message.reply_text(f"No notes found in {chat_title}.", quote=True)
+        await message.reply_text(f"𝐍ᴏ 𝐍ᴏᴛᴇs 𝐅ᴏᴜɴᴅ 𝐈ɴ {chat_title}.", quote=True)
 
 # Function to send a note message
 async def send_note(message, note_name):
@@ -152,9 +152,9 @@ async def send_note(message, note_name):
 # Function to send a private note button
 async def private_note_button(message, chat_id, note_name):
     private_note_button = InlineKeyboardMarkup([
-        [InlineKeyboardButton(text='Click me!', url=f'http://t.me/{BOT_USERNAME}?start=note_{chat_id}_{note_name}')]
+        [InlineKeyboardButton(text='𝐂ʟɪᴄᴋ 𝐌ᴇ!', url=f'http://t.me/{BOT_USERNAME}?start=note_{chat_id}_{note_name}')]
     ])
     await message.reply_text(
-        text=f"Tap here to view '{note_name}' in your private chat.",
+        text=f"𝐓ᴀᴘ 𝐇ᴇʀᴇ 𝐓ᴏ 𝐕ɪᴇᴡ '{note_name}' 𝐈ɴ 𝐘ᴏᴜʀ 𝐏ʀɪᴠᴀᴛᴇ 𝐂ʜᴀᴛ.",
         reply_markup=private_note_button
     )
