@@ -18,18 +18,18 @@ async def echo(bot, message):
     try:
         text = message.text.split(' ',1)[1]
     except IndexError:
-        return await message.reply_text("𝘌𝘹𝘢𝘮𝘱𝘭𝘦:\n\n`/figlet HELLO`")
+        return await message.reply_text("𝐄xᴀᴍᴘʟᴇ:\n\n`/figlet HELLO`")
     kul_text, keyboard = figle(text)
-    await message.reply_text(f"𝘏𝘦𝘳𝘦 𝘪𝘴 𝘺𝘰𝘶𝘳 𝘧𝘪𝘨𝘭𝘦𝘵 👉 :\n<pre>{kul_text}</pre>", quote=True, reply_markup=keyboard)
+    await message.reply_text(f"𝐇ᴇʀᴇ 𝐈s 𝐘ᴏᴜʀ 𝐅ɪɢʟᴇᴛ 🍃 :\n<pre>{kul_text}</pre>", quote=True, reply_markup=keyboard)
 
 @app.on_callback_query(filters.regex("figlet"))
 async def figlet_handler(Client, query: CallbackQuery):
   try:
       kul_text, keyboard = figle(text)
-      await query.message.edit_text(f"𝘏𝘦𝘳𝘦 𝘪𝘴 𝘺𝘰𝘶𝘳 𝘧𝘪𝘨𝘭𝘦𝘵 👉 :\n<pre>{kul_text}</pre>", reply_markup=keyboard)
+      await query.message.edit_text(f"𝐇ᴇʀᴇ 𝐈s 𝐘ᴏᴜʀ 𝐅ɪɢʟᴇᴛ 🍃 :\n<pre>{kul_text}</pre>", reply_markup=keyboard)
   except Exception as e : 
       await message.reply(e)
 __mod_name__ = "Fɪɢʟᴇᴛ" 
 __help__="""
 ❍ /figlet*:* ᴍᴀᴋᴇs ғɪɢʟᴇᴛ ᴏғ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ
-Example:\n\n`/figlet ANNIE `"""
+Example:\n\n`/figlet HELLO `"""
