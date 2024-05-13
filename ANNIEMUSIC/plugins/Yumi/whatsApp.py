@@ -6,7 +6,7 @@ from ANNIEMUSIC import app
 @app.on_message(filters.command("WhatsApp"))
 async def generate_whatsapp_link(client, message: Message):
     if len(message.command) < 2:
-        await message.reply("𝐏ʟᴇᴀsᴇ enter your phone number after the command. Example: /WhatsApp +1234567890")
+        await message.reply("𝐏ʟᴇᴀsᴇ 𝐄ɴᴛᴇʀ 𝐘ᴏᴜʀ 𝐏ʜᴏɴᴇ 𝐍ᴜᴍʙᴇʀ 𝐀ғᴛᴇʀ 𝐓ʜᴇ 𝐂ᴏᴍᴍᴀɴᴅ. 𝐄xᴀᴍᴘʟᴇ: /whatsapp +𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿𝟶")
         return
 
     phone_number = message.command[1]
