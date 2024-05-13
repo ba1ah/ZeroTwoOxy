@@ -13,7 +13,7 @@ from config import BOT_USERNAME
 async def ytsearch(_, message: Message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("/search needs an argument!")
+            await message.reply_text("/search 𝐍ᴇᴇᴅs 𝐀ɴ 𝐀ʀɢᴜᴇᴍɴᴛ 🌝")
             return
         query = message.text.split(None, 1)[1]
         m = await message.reply_text(" searching")
