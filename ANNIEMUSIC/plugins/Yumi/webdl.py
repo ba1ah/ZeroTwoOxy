@@ -38,7 +38,7 @@ def download_website(url):
 def web_download(client, message):
     # Check if the command has a URL attached
     if len(message.command) == 1:
-        message.reply_text("Please enter a URL along with the /webdl command.")
+        message.reply_text("𝐏ʟᴇᴀsᴇ 𝐄ɴᴛᴇʀ 𝐀 𝐔𝐑𝐋 𝐀ʟᴏɴɢ 𝐖ɪᴛʜ 𝐓ʜᴇ /webdl 𝐂ᴏᴍᴍᴀɴᴅ.")
         return
 
     # Get the URL after /webdl command
