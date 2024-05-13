@@ -17,13 +17,13 @@ def slap_command(client, message):
         gif_url = response.json().get("url")
 
         if gif_url:
-            msg = f"{sender} slapped {target}! 😒"
+            msg = f"{sender} 𝐒ʟᴀᴘᴘᴇᴅ 😁 {target}! 😒"
             message.reply_animation(animation=gif_url, caption=msg)
         else:
-            message.reply_text("Couldn't retrieve the animation. Please try again.")
+            message.reply_text("𝐂ᴏᴜʟᴅɴ'ᴛ 𝐑ᴇᴛʀɪᴇᴠᴇ 𝐓ʜᴇ 𝐀ɴɪᴍᴀᴛɪᴏɴ. 𝐏ʟᴇᴀsᴇ 𝐓ʀʏ 𝐀ɢᴀɪɴ.")
         
     except requests.exceptions.RequestException as e:
-        message.reply_text(f"An error occurred while making the request: {e}")
+        message.reply_text(f"𝐀ɴ 𝐄ʀʀᴏʀ 𝐎ᴄᴄᴜʀʀᴇᴅ 𝐖ʜɪʟᴇ 𝐌ᴀᴋɪɴɢ 𝐓ʜᴇ 𝐑ᴇǫᴜᴇsᴛ: {e}")
     except Exception as e:
         
-        message.reply_text(f"An unexpected error occurred: {str(e)}")
+        message.reply_text(f"𝐄ʀʀᴏʀ 𝐎ᴄᴄᴜʀʀᴇᴅ: {str(e)}")
