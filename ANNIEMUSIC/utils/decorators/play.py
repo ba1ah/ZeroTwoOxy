@@ -73,7 +73,7 @@ def PlayWrapper(command):
                     return await message.reply_text(_["str_1"])
                 buttons = botplaylist_markup(_)
                 return await message.reply_photo(
-                    photo=PLAYLIST_IMG_URL,
+                    photo="https://telegra.ph/file/6692464e35d1fc231b3d5.jpg",
                     caption=_["play_18"],
                     reply_markup=InlineKeyboardMarkup(buttons),
                 )
