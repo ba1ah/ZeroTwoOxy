@@ -10,7 +10,7 @@ def start_panel(_):
             InlineKeyboardButton(
                 text=_["S_B_11"], url=f"https://t.me/{app.username}?startgroup=true"
             ),
-            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
         ],
     ]
     return buttons
