@@ -5,7 +5,7 @@ from ANNIEMUSIC import app
 @app.on_message(filters.command("groupinfo", prefixes="/"))
 async def get_group_status(_, message: Message):
     if len(message.command) != 2:
-        await message.reply("Please provide a group username. Example: `/groupinfo YourGroupUsername`")
+        await message.reply("𝐏ʟᴇᴀsᴇ 𝐏ʀᴏᴠɪᴅᴇ 𝐀 𝐆ʀᴏᴜᴘ 𝐔sᴇʀɴᴀᴍᴇ, 𝐄xᴀᴍᴘʟᴇ: `/groupinfo 𝐘ᴏᴜʀ𝐆ʀᴏᴜᴘ𝐔sᴇʀɴᴀᴍᴇ`")
         return
     
     group_username = message.command[1]
@@ -22,11 +22,11 @@ async def get_group_status(_, message: Message):
 
     response_text = (
         f"➖➖➖➖➖➖➖\n"
-        f"➲ GROUP NAME : {group.title} ✅\n"
-        f"➲ GROUP ID : {group.id}\n"
-        f"➲ TOTAL MEMBERS : {total_members}\n"
-        f"➲ DESCRIPTION : {group_description or 'N/A'}\n"
-        f"➲ USERNAME : @{group_username}\n"
+        f"✨ 𝐆ʀᴏᴜᴘ 𝐍ᴀᴍᴇ : {group.title} ✅\n"
+        f"☘️ 𝐆ʀᴏᴜᴘ ID : {group.id}\n"
+        f"🍂 𝐓ᴏᴛᴀʟ 𝐌ᴇᴍʙᴇʀs : {total_members}\n"
+        f"🍁 𝐃ᴇsᴄʀɪᴘᴛɪᴏɴ : {group_description or 'N/A'}\n"
+        f"⚡️ 𝐔sᴇʀɴᴀᴍᴇ : @{group_username}\n"
        
         f"➖➖➖➖➖➖➖"
     )
