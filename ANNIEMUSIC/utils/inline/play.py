@@ -237,7 +237,7 @@ def panel_markup_2(_, videoid, chat_id):
        
         [
                 InlineKeyboardButton(text="𝐒ᴜᴘᴘᴏʀᴛ", url=f"https://t.me/musicheavenvibes"),
-                InlineKeyboardButton(text="𝐎ᴡɴᴇʀ", callback_data=f"https://t.me/Zero_Two_Music"),
+                InlineKeyboardButton(text="𝐎ᴡɴᴇʀ", url=f"https://t.me/Zero_Two_Music"),
             ],
             
         [
@@ -251,7 +251,7 @@ def panel_markup_3(_, videoid, chat_id):
     buttons = [
         [
                 InlineKeyboardButton(text="𝐒ᴜᴘᴘᴏʀᴛ", url=f"https://t.me/musicheavenvibes"),
-                InlineKeyboardButton(text="𝐎ᴡɴᴇʀ", callback_data=f"https://t.me/Zero_Two_Music"),
+                InlineKeyboardButton(text="𝐎ᴡɴᴇʀ", url=f"https://t.me/Zero_Two_Music"),
             ],
             
         [
