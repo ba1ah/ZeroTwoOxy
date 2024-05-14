@@ -14,7 +14,7 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 # Specify where to get the following credentials
 OWNER_USERNAME = getenv("OWNER_USERNAME","PRADHAN474")
 BOT_USERNAME = getenv("BOT_USERNAME", "oxgenxBot")
-BOT_NAME = getenv("BOT_NAME", "𝐎𝐗𝐘𝐆𝐄𝐍 𝐗 𝐁𝐎𝐓")
+BOT_NAME = getenv("BOT_NAME", "")
 ASSUSERNAME = getenv("ASSUSERNAME", "Blossom_xmusic_bot_assitant")
 EVALOP = list(map(int, getenv("EVALOP", "5059737154").split()))
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
