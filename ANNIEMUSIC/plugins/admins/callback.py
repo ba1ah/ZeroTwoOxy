@@ -27,9 +27,9 @@ from ANNIEMUSIC.utils.database import (
     is_muted,
     set_loop,
 )
-from VIPMUSIC.utils.decorators.language import languageCB
-from VIPMUSIC.utils.formatters import seconds_to_min
-from VIPMUSIC.utils.inline import (
+from ANNIEMUSIC.utils.decorators.language import languageCB
+from ANNIEMUSIC.utils.formatters import seconds_to_min
+from ANNIEMUSIC.utils.inline import (
     close_markup,
     stream_markup,
     stream_markup_timer,
