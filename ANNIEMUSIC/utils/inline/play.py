@@ -170,7 +170,7 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
         ],
         [
             InlineKeyboardButton(text="◁", callback_data=f"slider B|{query_type}|{query}|{user_id}|{channel}|{fplay}",),
-            InlineKeyboardButton(text=_["✧ᴄʟᴏsᴇ✧"], callback_data=f"forceclose {query}|{user_id}",),
+            InlineKeyboardButton(text="✧ᴄʟᴏsᴇ✧", callback_data=f"forceclose {query}|{user_id}",),
             InlineKeyboardButton(text="▷", callback_data=f"slider F|{query_type}|{query}|{user_id}|{channel}|{fplay}",),
         ],
      ]
@@ -263,7 +263,7 @@ def panel_markup_3(_, videoid, chat_id):
                 InlineKeyboardButton(text="🕛 2.0x", callback_data=f"SpeedUP {chat_id}|2.0",),
             ],
         [
-            InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data=f"Pages Back|2|{videoid}|{chat_id}",),
+            InlineKeyboardButton(text="𝐁ᴀᴄᴋ 🏃‍♀", callback_data=f"Pages Back|2|{videoid}|{chat_id}",),
         ],
     ]
     return buttons
