@@ -27,17 +27,49 @@ from ANNIEMUSIC.utils.database import (
     is_muted,
     set_loop,
 )
-from ANNIEMUSIC.utils.decorators.language import languageCB
-from ANNIEMUSIC.utils.formatters import seconds_to_min
-from ANNIEMUSIC.utils.inline import close_markup, stream_markup, stream_markup_timer
-from ANNIEMUSIC.utils.inline.play import panel_markup_1, panel_markup_2, panel_markup_3
-from ANNIEMUSIC.utils.stream.autoclear import auto_clean
-from ANNIEMUSIC.utils.thumbnails import get_thumb
-from config import BANNED_USERS, SOUNCLOUD_IMG_URL, STREAM_IMG_URL, TELEGRAM_AUDIO_URL, TELEGRAM_VIDEO_URL, adminlist, confirmer, votemode
+from VIPMUSIC.utils.decorators.language import languageCB
+from VIPMUSIC.utils.formatters import seconds_to_min
+from VIPMUSIC.utils.inline import (
+    close_markup,
+    stream_markup,
+    stream_markup_timer,
+    stream_markup2,
+    stream_markup_timer2,
+    panel_markup_5,
+    track_markup,
+    slider_markup,
+    livestream_markup,
+    playlist_markup,
+    stream_markup,
+    stream_markup_timer,
+    telegram_markup,
+    panel_markup_4,
+    panel_markup_3,
+    panel_markup_2,
+    stream_markup_timer2,
+    stream_markup2,
+    queue_markup,
+    panel_markup_1,
+)
+from VIPMUSIC.utils.stream.autoclear import auto_clean
+from VIPMUSIC.utils.thumbnails import get_thumb
+from config import (
+    BANNED_USERS,
+    SOUNCLOUD_IMG_URL,
+    STREAM_IMG_URL,
+    TELEGRAM_AUDIO_URL,
+    TELEGRAM_VIDEO_URL,
+    adminlist,
+    confirmer,
+    votemode,
+)
 from strings import get_string
 from config import lyrical
 
 wrong = {}
+
+
+# =============================FUNCTIONS==============================#
 
 
 @app.on_callback_query(filters.regex("PanelMarkup") & ~BANNED_USERS)
@@ -49,21 +81,40 @@ async def markup_panel(client, CallbackQuery: CallbackQuery, _):
     videoid, chat_id = callback_request.split("|")
     chat_id = CallbackQuery.message.chat.id
     buttons = panel_markup_1(_, videoid, chat_id)
+
     try:
         await CallbackQuery.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons)
         )
     except:
         return
-    
+
+
 @app.on_callback_query(filters.regex("MainMarkup") & ~BANNED_USERS)
 @languageCB
-async def del_back_playlist(client, CallbackQuery, _):
+async def del_back_playlists(client, CallbackQuery, _):
     await CallbackQuery.answer()
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     videoid, chat_id = callback_request.split("|")
-    buttons = stream_markup(_, chat_id)
+    buttons = stream_markup(_, videoid, chat_id)
+    chat_id = CallbackQuery.message.chat.id
+    try:
+        await CallbackQuery.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
+    except:
+        return
+
+
+@app.on_callback_query(filters.regex("MusicMarkup") & ~BANNED_USERS)
+@languageCB
+async def music_markup(client, CallbackQuery, _):
+    await CallbackQuery.answer()
+    callback_data = CallbackQuery.data.strip()
+    callback_request = callback_data.split(None, 1)[1]
+    videoid, chat_id = callback_request.split("|")
+    buttons = stream_markup(_, videoid, chat_id)
     chat_id = CallbackQuery.message.chat.id
     try:
         await CallbackQuery.edit_message_reply_markup(
@@ -78,24 +129,37 @@ async def del_back_playlist(client, CallbackQuery, _):
 async def del_back_playlist(client, CallbackQuery, _):
     await CallbackQuery.answer()
     callback_data = CallbackQuery.data.strip()
+    chat_id = CallbackQuery.message.chat.id
+    playing = db.get(chat_id)
     callback_request = callback_data.split(None, 1)[1]
     state, pages, videoid, chat = callback_request.split("|")
     chat_id = int(chat)
     pages = int(pages)
     if state == "Forw":
         if pages == 0:
-            buttons = panel_markup_2(_, videoid, chat_id)
-        if pages == 2:
-            buttons = panel_markup_1(_, videoid, chat_id)
+            buttons = panel_markup_5(_, videoid, chat_id)
         if pages == 1:
-            buttons = panel_markup_3(_, videoid, chat_id)
+            buttons = panel_markup_1(_, videoid, chat_id)
+        if pages == 2:
+            buttons = panel_markup_2(_, videoid, chat_id)
+
     if state == "Back":
-        if pages == 2:
-            buttons = panel_markup_2(_, videoid, chat_id)
         if pages == 1:
             buttons = panel_markup_1(_, videoid, chat_id)
+        if pages == 2:
+            buttons = panel_markup_5(_, videoid, chat_id)
         if pages == 0:
             buttons = panel_markup_3(_, videoid, chat_id)
+        if pages == 4:
+            buttons = panel_markup_
+        if pages == 3:
+            buttons = panel_markup_4(
+                _,
+                playing[0]["vidid"],
+                chat_id,
+                seconds_to_min(playing[0]["played"]),
+                playing[0]["dur"],
+            )
     try:
         await CallbackQuery.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons)
@@ -108,12 +172,18 @@ async def del_back_playlist(client, CallbackQuery, _):
 async def unban_assistant(_, callback: CallbackQuery):
     chat_id = callback.message.chat.id
     userbot = await get_assistant(chat_id)
-    
+
     try:
         await app.unban_chat_member(chat_id, userbot.id)
-        await callback.answer("ᴍʏ ᴀssɪsᴛᴀɴᴛ ɪᴅ ᴜɴʙᴀɴɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ🥰🥳\n\n➻ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴘʟᴀʏ sᴏɴɢs🫠🔉\n\nTʜᴀɴᴋ ʏᴏᴜ💗", show_alert=True)
+        await callback.answer(
+            "𝗠𝘆 𝗔𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝘁 𝗜𝗱 𝗨𝗻𝗯𝗮𝗻𝗻𝗲𝗱 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆🥳\n\n➻ 𝗡𝗼𝘄 𝗬𝗼𝘂 𝗖𝗮𝗻 𝗣𝗹𝗮𝘆 𝗦𝗼𝗻𝗴𝘀🔉\n\n𝗧𝗵𝗮𝗻𝗸 𝗬𝗼𝘂💝",
+            show_alert=True,
+        )
     except Exception as e:
-        await callback.answer(f"Fᴀɪʟʟᴇᴅ ᴛᴏ ᴜɴʙᴀɴ ᴍʏ ᴀssɪssᴛᴀɴᴛ ʙᴇᴄᴀᴜsᴇ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ʙᴀɴ ᴘᴏᴡᴇʀ\n\n➻ Pʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴍᴇ ʙᴀɴ ᴘᴏᴡᴇʀ sᴏ ᴛʜᴀᴛ ɪ ᴄᴀɴ ᴜɴʙᴀɴ ᴍʏ ᴀssɪssᴛᴀɴᴛ ɪᴅ", show_alert=True)
+        await callback.answer(
+            f"𝙁𝙖𝙞𝙡𝙚𝙙 𝙏𝙤 𝙐𝙣𝙗𝙖𝙣 𝙈𝙮 𝘼𝙨𝙨𝙞𝙨𝙩𝙖𝙣𝙩 𝘽𝙚𝙘𝙖𝙪𝙨𝙚 𝙄 𝘿𝙤𝙣'𝙩 𝙃𝙖𝙫𝙚 𝘽𝙖𝙣 𝙋𝙤𝙬𝙚𝙧\n\n➻ 𝙋𝙡𝙚𝙖𝙨𝙚 𝙋𝙧𝙤𝙫𝙞𝙙𝙚 𝙈𝙚 𝘽𝙖𝙣 𝙋𝙤𝙬𝙚𝙧 𝙎𝙤 𝙏𝙝𝙖𝙩 𝙄 𝙘𝙖𝙣 𝙐𝙣𝙗𝙖𝙣 𝙈𝙮 𝘼𝙨𝙨𝙞𝙨𝙩𝙖𝙣𝙩 𝙄𝙙",
+            show_alert=True,
+        )
 
 
 checker = {}
@@ -217,12 +287,16 @@ async def del_back_playlist(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["admin_1"], show_alert=True)
         await CallbackQuery.answer()
         await music_off(chat_id)
-        await JARVIS.pause_stream(chat_id)
+        await VIP.pause_stream(chat_id)
         buttons = [
-        [
-            InlineKeyboardButton(text="ʀᴇsᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="ʀᴇᴘʟᴀʏ", callback_data=f"ADMIN Replay|{chat_id}"),
-        ],
+            [
+                InlineKeyboardButton(
+                    text="ʀᴇsᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"
+                ),
+                InlineKeyboardButton(
+                    text="ʀᴇᴘʟᴀʏ", callback_data=f"ADMIN Replay|{chat_id}"
+                ),
+            ],
         ]
         await CallbackQuery.message.reply_text(
             _["admin_2"].format(mention), reply_markup=InlineKeyboardMarkup(buttons)
@@ -232,31 +306,31 @@ async def del_back_playlist(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["admin_3"], show_alert=True)
         await CallbackQuery.answer()
         await music_on(chat_id)
-        await JARVIS.resume_stream(chat_id)
+        await VIP.resume_stream(chat_id)
         buttons_resume = [
-        [
-            
-            InlineKeyboardButton(
-                text="sᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}"
-            ),
-            InlineKeyboardButton(
-                text="sᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="ᴘᴀᴜsᴇ",
-                callback_data=f"ADMIN Pause|{chat_id}",
-            ),
+            [
+                InlineKeyboardButton(
+                    text="sᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}"
+                ),
+                InlineKeyboardButton(
+                    text="sᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="ᴘᴀᴜsᴇ",
+                    callback_data=f"ADMIN Pause|{chat_id}",
+                ),
+            ],
         ]
-    ]
-    
+
         await CallbackQuery.message.reply_text(
-            _["admin_4"].format(mention), reply_markup=InlineKeyboardMarkup(buttons_resume)
+            _["admin_4"].format(mention),
+            reply_markup=InlineKeyboardMarkup(buttons_resume),
         )
     elif command == "Stop" or command == "End":
         await CallbackQuery.answer()
-        await JARVIS.stop_stream(chat_id)
+        await VIP.stop_stream(chat_id)
         await set_loop(chat_id, 0)
         await CallbackQuery.message.reply_text(
             _["admin_5"].format(mention), reply_markup=close_markup(_)
@@ -264,56 +338,38 @@ async def del_back_playlist(client, CallbackQuery, _):
         await CallbackQuery.message.delete()
     elif command == "Mute":
         if await is_muted(chat_id):
-            return await CallbackQuery.answer(
-                _["admin_45"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_45"], show_alert=True)
         await CallbackQuery.answer()
         await mute_on(chat_id)
-        await JARVIS.mute_stream(chat_id)
-        await CallbackQuery.message.reply_text(
-            _["admin_46"].format(mention)
-        )
+        await VIP.mute_stream(chat_id)
+        await CallbackQuery.message.reply_text(_["admin_46"].format(mention))
     elif command == "Unmute":
         if not await is_muted(chat_id):
-            return await CallbackQuery.answer(
-                _["admin_47"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_47"], show_alert=True)
         await CallbackQuery.answer()
         await mute_off(chat_id)
-        await JARVIS.unmute_stream(chat_id)
-        await CallbackQuery.message.reply_text(
-            _["admin_48"].format(mention)
-        )
+        await VIP.unmute_stream(chat_id)
+        await CallbackQuery.message.reply_text(_["admin_48"].format(mention))
     elif command == "Loop":
         await CallbackQuery.answer()
         await set_loop(chat_id, 3)
-        await CallbackQuery.message.reply_text(
-            _["admin_41"].format(mention, 3)
-        )
+        await CallbackQuery.message.reply_text(_["admin_41"].format(mention, 3))
     elif command == "Shuffle":
         check = db.get(chat_id)
         if not check:
-            return await CallbackQuery.answer(
-                _["admin_42"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_42"], show_alert=True)
         try:
             popped = check.pop(0)
         except:
-            return await CallbackQuery.answer(
-                _["admin_43"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_43"], show_alert=True)
         check = db.get(chat_id)
         if not check:
             check.insert(0, popped)
-            return await CallbackQuery.answer(
-                _["admin_43"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_43"], show_alert=True)
         await CallbackQuery.answer()
         random.shuffle(check)
         check.insert(0, popped)
-        await CallbackQuery.message.reply_text(
-            _["admin_44"].format(mention)
-        )
+        await CallbackQuery.message.reply_text(_["admin_44"].format(mention))
     elif command == "Skip" or command == "Replay":
         check = db.get(chat_id)
         if command == "Skip":
@@ -334,7 +390,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         reply_markup=close_markup(_),
                     )
                     try:
-                        return await JARVIS.stop_stream(chat_id)
+                        return await VIP.stop_stream(chat_id)
                     except:
                         return
             except:
@@ -348,7 +404,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                         ),
                         reply_markup=close_markup(_),
                     )
-                    return await JARVIS.stop_stream(chat_id)
+                    return await VIP.stop_stream(chat_id)
                 except:
                     return
         else:
@@ -380,10 +436,10 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 image = None
             try:
-                await JARVIS.skip_stream(chat_id, link, video=status, image=image)
+                await VIP.skip_stream(chat_id, link, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = stream_markup2(_, chat_id)
             img = await get_thumb(videoid)
             run = await CallbackQuery.message.reply_photo(
                 photo=img,
@@ -416,10 +472,10 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 image = None
             try:
-                await JARVIS.skip_stream(chat_id, file_path, video=status, image=image)
+                await VIP.skip_stream(chat_id, file_path, video=status, image=image)
             except:
                 return await mystic.edit_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = stream_markup(_, videoid, chat_id)
             img = await get_thumb(videoid)
             run = await CallbackQuery.message.reply_photo(
                 photo=img,
@@ -437,10 +493,10 @@ async def del_back_playlist(client, CallbackQuery, _):
             await mystic.delete()
         elif "index_" in queued:
             try:
-                await JARVIS.skip_stream(chat_id, videoid, video=status)
+                await VIP.skip_stream(chat_id, videoid, video=status)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = stream_markup2(_, chat_id)
             run = await CallbackQuery.message.reply_photo(
                 photo=STREAM_IMG_URL,
                 caption=_["stream_2"].format(user),
@@ -460,15 +516,17 @@ async def del_back_playlist(client, CallbackQuery, _):
                 except:
                     image = None
             try:
-                await JARVIS.skip_stream(chat_id, queued, video=status, image=image)
+                await VIP.skip_stream(chat_id, queued, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             if videoid == "telegram":
-                button = stream_markup(_, chat_id)
+                button = stream_markup2(_, chat_id)
                 run = await CallbackQuery.message.reply_photo(
-                    photo=TELEGRAM_AUDIO_URL
-                    if str(streamtype) == "audio"
-                    else TELEGRAM_VIDEO_URL,
+                    photo=(
+                        TELEGRAM_AUDIO_URL
+                        if str(streamtype) == "audio"
+                        else TELEGRAM_VIDEO_URL
+                    ),
                     caption=_["stream_1"].format(
                         config.SUPPORT_CHAT, title[:23], duration, user
                     ),
@@ -477,11 +535,13 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
-                button = stream_markup(_, chat_id)
+                button = stream_markup2(_, chat_id)
                 run = await CallbackQuery.message.reply_photo(
-                    photo=SOUNCLOUD_IMG_URL
-                    if str(streamtype) == "audio"
-                    else TELEGRAM_VIDEO_URL,
+                    photo=(
+                        SOUNCLOUD_IMG_URL
+                        if str(streamtype) == "audio"
+                        else TELEGRAM_VIDEO_URL
+                    ),
                     caption=_["stream_1"].format(
                         config.SUPPORT_CHAT, title[:23], duration, user
                     ),
@@ -490,7 +550,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
-                button = stream_markup(_, chat_id)
+                button = stream_markup(_, videoid, chat_id)
                 img = await get_thumb(videoid)
                 run = await CallbackQuery.message.reply_photo(
                     photo=img,
@@ -509,19 +569,13 @@ async def del_back_playlist(client, CallbackQuery, _):
     else:
         playing = db.get(chat_id)
         if not playing:
-            return await CallbackQuery.answer(
-                _["queue_2"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["queue_2"], show_alert=True)
         duration_seconds = int(playing[0]["seconds"])
         if duration_seconds == 0:
-            return await CallbackQuery.answer(
-                _["admin_22"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_22"], show_alert=True)
         file_path = playing[0]["file"]
         if "index_" in file_path or "live_" in file_path:
-            return await CallbackQuery.answer(
-                _["admin_22"], show_alert=True
-            )
+            return await CallbackQuery.answer(_["admin_22"], show_alert=True)
         duration_played = int(playing[0]["played"])
         if int(command) in [1, 2]:
             duration_to_skip = 10
@@ -537,10 +591,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 )
             to_seek = duration_played - duration_to_skip + 1
         else:
-            if (
-                duration_seconds
-                - (duration_played + duration_to_skip)
-            ) <= 10:
+            if (duration_seconds - (duration_played + duration_to_skip)) <= 10:
                 bet = seconds_to_min(duration_played)
                 return await CallbackQuery.answer(
                     f"» ʙᴏᴛ ɪs ᴜɴᴀʙʟᴇ ᴛᴏ sᴇᴇᴋ ʙᴇᴄᴀᴜsᴇ ᴛʜᴇ ᴅᴜʀᴀᴛɪᴏɴ ᴇxᴄᴇᴇᴅs.\n\nᴄᴜʀʀᴇɴᴛʟʏ ᴩʟᴀʏᴇᴅ :** {bet}** ᴍɪɴᴜᴛᴇs ᴏᴜᴛ ᴏғ **{duration}** ᴍɪɴᴜᴛᴇs.",
@@ -550,13 +601,11 @@ async def del_back_playlist(client, CallbackQuery, _):
         await CallbackQuery.answer()
         mystic = await CallbackQuery.message.reply_text(_["admin_24"])
         if "vid_" in file_path:
-            n, file_path = await YouTube.video(
-                playing[0]["vidid"], True
-            )
+            n, file_path = await YouTube.video(playing[0]["vidid"], True)
             if n == 0:
                 return await mystic.edit_text(_["admin_22"])
         try:
-            await JARVIS.seek_stream(
+            await VIP.seek_stream(
                 chat_id,
                 file_path,
                 seconds_to_min(to_seek),
@@ -570,9 +619,8 @@ async def del_back_playlist(client, CallbackQuery, _):
         else:
             db[chat_id][0]["played"] += duration_to_skip
         string = _["admin_25"].format(seconds_to_min(to_seek))
-        await mystic.edit_text(
-            f"{string}\n\nᴄʜᴀɴɢᴇs ᴅᴏɴᴇ ʙʏ : {mention} !")
-        
+        await mystic.edit_text(f"{string}\n\nᴄʜᴀɴɢᴇs ᴅᴏɴᴇ ʙʏ : {mention} !")
+
 
 async def markup_timer():
     while not await asyncio.sleep(300):
