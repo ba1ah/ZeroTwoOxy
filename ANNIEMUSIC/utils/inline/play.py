@@ -141,7 +141,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
             InlineKeyboardButton(text=_["P_B_2"], callback_data=f"JARVISPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}"),
         ],
         [
-            InlineKeyboardButton(text=_["✧ᴄʟᴏsᴇ✧"], callback_data=f"forceclose {videoid}|{user_id}"),
+            InlineKeyboardButton(text="✧ᴄʟᴏsᴇ✧", callback_data=f"forceclose {videoid}|{user_id}"),
         ],
     ]
     return buttons
@@ -154,7 +154,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
             InlineKeyboardButton(text=_["P_B_3"], callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}"),
         ],
         [
-            InlineKeyboardButton(text=_["✧ᴄʟᴏsᴇ✧"], callback_data=f"forceclose {videoid}|{user_id}"),
+            InlineKeyboardButton(text="✧ᴄʟᴏsᴇ✧", callback_data=f"forceclose {videoid}|{user_id}"),
         ],
     ]
     return buttons
