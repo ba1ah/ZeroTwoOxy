@@ -51,8 +51,8 @@ from ANNIEMUSIC.utils.inline import (
     queue_markup,
     panel_markup_1,
 )
-from VIPMUSIC.utils.stream.autoclear import auto_clean
-from VIPMUSIC.utils.thumbnails import get_thumb
+from ANNIEMUSIC.utils.stream.autoclear import auto_clean
+from ANNIEMUSIC.utils.thumbnails import get_thumb
 from config import (
     BANNED_USERS,
     SOUNCLOUD_IMG_URL,
