@@ -331,7 +331,7 @@ class YouTubeAPI:
                     "yt-dlp",
                     "-g",
                     "-f",
-                    "best[height<=?720][width<=?1280]",
+                    "best[height<=?1080][width<=?1920]",
                     f"{link}",
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE,
