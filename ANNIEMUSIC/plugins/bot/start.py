@@ -54,7 +54,7 @@ async def start_pm(client, message: Message, _):
         if name[0:4] == "help":
             keyboard = help_pannel(_)
             sticker_message = await message.reply_sticker(sticker=random.choice(STICKERS))
-            asyncio.create_task(delete_sticker_after_delay(sticker_message, 2))  # Delete sticker after 2 seconds
+            asyncio.create_task(delete_sticker_after_delay(sticker_message, 10))  # Delete sticker after 2 seconds
             await message.reply_video(
                 random.choice(ANNIE_VID),
                 caption=_["help_1"].format(config.SUPPORT_CHAT),
