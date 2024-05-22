@@ -65,6 +65,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         
         [
             InlineKeyboardButton(text="𝐌ᴏʀᴇ 🐾", callback_data=f"PanelMarkup None|{chat_id}",),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
 
@@ -110,6 +111,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         
         [
             InlineKeyboardButton(text="𝐌ᴏʀᴇ 🐾", callback_data=f"PanelMarkup None|{chat_id}",),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
 
@@ -128,6 +130,7 @@ def stream_markup(_, chat_id):
         
         [
             InlineKeyboardButton(text="𝐌ᴏʀᴇ 🐾", callback_data=f"PanelMarkup None|{chat_id}",),
+            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
         ],
     ]
 
